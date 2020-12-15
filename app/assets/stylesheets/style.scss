@@ -129,7 +129,7 @@ header {
 }
 /*画像の設定*/
 .list img {
-	width: 20%;		/*画像幅*/
+	width: 10%;		/*画像幅*/
 	float: left;	/*画像を左に回り込み*/
 	margin-right: 3%	/*画像の右側に空けるスペース*/
 }
@@ -270,6 +270,7 @@ body {
 	margin: 3em auto;
 	padding: 0 1em;
 	max-width: 370px;
+	border: 5px solid #fff;
 	h1 {
 		color: #fff;
 	}
@@ -287,6 +288,7 @@ form {
 .form-item {
 	margin-bottom: 0.75em;
 	width: 100%;
+	color: #fff;
 }
 
 .form-item input {

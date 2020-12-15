@@ -23,14 +23,35 @@
 
     <header>
       <div>
-        <p>さん、ログイン中</p>
+        <% if user_signed_in? %>
+        <!-- ユーザーがログインしているか調べる -->
+        <p><%= current_user.email %>さん、ログイン中</p>
+        <% else %>
+        <p>ログインしてません</p>
+        <% end %>
       </div>
-      <h1 id="logo"><a href="index.html"><%= image_tag 'logo.png' %></a></h1>
+      <h1 id="logo">
+        <%= link_to("/index") do %>
+        <%= image_tag 'logo.png' %>
+        <% end %>
+      </h1>
       <nav id="menubar">
         <ul>
           <li><a href="company.html">COMPANY</a></li>
-          <li><a href="service.html">SERVICE</a></li>
-          <li><a href="recruit.html">RECRUIT</a></li>
+          <li>
+            <%= link_to("投稿一覧", "/posts/index") %>
+          </li>
+          <li>
+            <%= link_to("新規投稿", "/posts/new") %>
+          </li>
+          <li>
+            <% if user_signed_in? %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <% else %>
+            <%= link_to("ログイン", "/users/sign_in") %>
+            <% end %>
+
+          </li>
           <li><a href="link.html">LINK</a></li>
         </ul>
       </nav>
